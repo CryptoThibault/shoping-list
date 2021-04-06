@@ -1,4 +1,4 @@
-function AddPopularProduct({ shopping, addShopping }) {
+function AddPopularProduct({ shopping, addToShoppingList }) {
   const populars = [
     { text: "pain", emoji: "🥖" },
     { text: "lait", emoji: "🥛" },
@@ -14,7 +14,8 @@ function AddPopularProduct({ shopping, addShopping }) {
           <button
             key={el.text}
             className="btn btn-outline-success me-2 mb-2 d-flex align-items-center"
-            onClick={() => addShopping(el.text)}
+            onClick={() => addToShoppingList(el.text)}
+            disabled={shopping.includes(el.text)}
           >
             {el.text}{" "}
             <span className="fs-1" role="img" aria-hidden>

@@ -5,24 +5,29 @@ import AddProductForm from './AddProductForm'
 
 function ShoppingApp() {
   const [shopping, setShopping] = useState([])
-  function addShopping(product) {
-    setShopping(...shopping, product)
+
+  function addToShoppingList(product) {
+    setShopping([...shopping, product])
+  }
+  function removeFromShoppingList(product) {
+    setShopping(shopping.filter((el) => el !== product))
   }
   return (
     <main className="row">
       <section className="col-lg-8">
         <ShoppingList
           shopping={shopping}
+          removeFromShoppingList={removeFromShoppingList}
         />
       </section>
       <section>
         <AddProductForm
           shopping={shopping}
-          addShopping={addShopping}
+          addToShoppingList={addToShoppingList}
         />
         <AddPopularProduct
           shopping={shopping}
-          addShopping={addShopping}
+          addToShoppingList={addToShoppingList}
         />
       </section>
     </main>

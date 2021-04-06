@@ -1,12 +1,19 @@
-function Product({ product }) {
+function Product({ product, removeFromShoppingList }) {
+  const handleButtonClick = () => {
+    removeFromShoppingList(product)
+  }
 
   return (
-    <div class="d-flex align-items-center justify-content-between">
+    <div className="d-flex align-items-center justify-content-between">
       {product}
-      <button
-        class="btn btn-sm btn-warning"
-      >ok</button>
+      <button className="btn btn-sm btn-warning" onClick={handleButtonClick}>
+        <span role="img" aria-hidden>
+          ✖️
+        </span>{" "}
+        ok
+      </button>
     </div>
   )
 }
+
 export default Product;

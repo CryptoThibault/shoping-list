@@ -1,6 +1,6 @@
 import Product from './Product'
 
-function ShoppingList({ shopping }) {
+function ShoppingList({ shopping, removeFromShoppingList }) {
   return (
     <>
       <h2 className="mb-3 h4">Produits à acheter ({shopping.length}):</h2>
@@ -10,7 +10,7 @@ function ShoppingList({ shopping }) {
             <li className="list-group-item" key={product}>
               <Product
                 product={product}
-              //removeFromShoppingList={removeFromShoppingList}
+                removeFromShoppingList={removeFromShoppingList}
               />
             </li>
           )
